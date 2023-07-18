@@ -7,95 +7,102 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/6ff971e226.js" crossorigin="anonymous"></script>
-    <style>
-    @import url(":https//fonts.googleapis.com/css2?family=Montserrat&display=swap");
-    </style>
-    <title>Document</title>
 
     <meta name="description" content="Weather application made for UCB's bootcamp with Open Weather API." />
     <link rel="stylesheet" href="Assets/style.css" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Karla&family=Rubik:wght@700&display=swap"
+    rel="stylesheet"
+    />
 
     <link rel="shortcut icon" href="./assets/images/wind.png">
     <title>Open Weather API Application </title>
 </head>
 <body>
-    <head>
-        <nav class="navbar">
-            <h1 class="display-4">Weather Predictor</h1>
-         </nav>
-    </head>
+     
+     <header class="p-3 mb-2 bg-primary bg-gradient text-white header">
+        <h1>Weather Dashboard</h1>
+    </header>
     <main>
         <div class="main-container">
             <aside class="card-search">
-                <h5>Enter the city to get Weather </h5>
+                <h3>Search for a City </h3>
                 <!--Search Form-->
                 <div class="input-group" style="width:100%">
                     <form id="formCity">
-                        <!-- <input name="city" id="city" type="text" autofocus="true" placeholder="Search your city" class="form-input" style="width: 100%;" /> -->
-                        <input name="city" id="city" type="text" autofocus="true" placeholder="Search your city" class="form-input" style="width:200px" />
-                        <button type="submit" class="btn-success" style:"margin-right:5px"> Search <i class="fas fa-search" style="width: 100%;"></i></button>
+                        <input name="city" id="city" type="text" autofocus="true" placeholder="Search your city" class="form-input" style="width:100%" />
+                        <button type="submit" class="btn btn-primary" btn-sm id="search-button" style="width: 100%;">Search <i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <!--Past City Search Buttons -->
-                <div class="btn-group-vertical"  id="buttons" style="width: 100%;"></div>
+                <div class="btn-group-vertical"  id="buttons" style="width: 100%;">
+                 
+            </div>
+
             </aside>
       
             <section class="weather-container">
                 <div class="card todayBlock">
-                    <h5> <span id="searchedCity"></span></h5>
-                    <h6><span id="todayDate"></span></h6>
-                    <img id="todayIcon" src="" style="margin-left:45%;">
+                    <div class="name-block">
+                        <h3> <span id="searchedCity"></span></h3>
+                        <h4><span id="todayDate"></span></h4>
+                        <img id="todayIcon" src="">
+                    </div> 
                     <p><strong>Temperature: </strong><span id="todayTemp"></span> °F</p>
                     <p><strong>Humidity: </strong><span id="todayHumidity"></span>%</p>
-                    <p><strong>Wind Speed: </strong><span id="todayWind"></span> mph</p>
-                    <p><strong>UV Index: </strong><span id="todayUV"></span></p>
+                    <p><strong>Wind Speed: </strong><span id="todayWind"></span> mph</p> 
                 </div>
                 <h3 style="margin-right:30%">5-Day Forecast</h3>
-                <div class="row row-cols-5">
-                    <!--Day 1-->
+                <div class="row row-cols-5"> 
                     <div class="">
-                        <div class="card card5day">
+                        <div class="card-header">
                             <h6 id="day1"></h6>
+                        </div>
+                        <div class="card card5day"> 
                             <img id="i1" src="" style="margin-left:15%">
                             <p><strong>Temp:</strong> <span id="t1"></span> °F</p>
                             <p><strong>Wind Speed:</strong> <span id="w1"></span> MPH</p>
                             <p><strong>Humidity:</strong> <span id="h1"></span>%</p>
                         </div>
-                    </div>
-                    <!--Day 2-->
+                    </div> 
                     <div class="">
-                        <div class="card card5day">
+                        <div class="card-header">
                             <h6 id="day2"></h6>
+                        </div>
+                        <div class="card card5day"> 
                             <img id="i2" src="" style="margin-left:15%">
                             <p><strong>Temp:</strong> <span id="t2"></span> °F</p>
                             <p><strong>Wind speed:</strong> <span id="w2"></span> MPH</p>
                             <p><strong>Humidity:</strong> <span id="h2"></span>%</p>
                         </div>
-                    </div>
-                    <!--Day 3-->
+                    </div> 
                     <div class="">
-                        <div class="card card5day">
+                        <div class="card-header">
                             <h6 id="day3"></h6>
+                        </div>
+                        <div class="card card5day"> 
                             <img id="i3" src="" style="margin-left:15%">
                             <p><strong>Temp:</strong> <span id="t3"></span> °F</p>
                             <p><strong>Wind Speed:</strong> <span id="w3"></span> MPH</p>
                             <p><strong>Humidity:</strong> <span id="h3"></span>%</p>
                         </div>
-                    </div>
-                    <!--Day 4-->
+                    </div> 
                     <div class="">
-                        <div class="card card5day">
+                        <div class="card-header">
                             <h6 id="day4"></h6>
+                        </div>
+                        <div class="card card5day"> 
                             <img id="i4" src="" style="margin-left:15%">
                             <p><strong>Temp: </strong><span id="t4"></span> °F</p>
                             <p><strong>Wind Speed:</strong> <span id="w4"></span> MPH</p>
                             <p><strong>Humidity:</strong> <span id="h4"></span>%</p>
                         </div>
-                    </div>
-                    <!--Day 5-->
+                    </div> 
                     <div class="">
-                        <div class="card card5day">
+                        <div class="card-header">
                             <h6 id="day5"></h6>
+                        </div>
+                        <div class="card card5day"> 
                             <img id="i5" src="" style="margin-left:20%">
                             <p><strong>Temp:</strong> <span id="t5"></span> °F</p>
                             <p><strong>Wind Speed:</strong> <span id="w5"></span> MPH</p>
@@ -112,8 +119,7 @@
 
     
 </footer>
-
- <!--Scripts: Moment, jQuery, JS-->
+ 
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
  <script src="Assets/script.js"></script>
